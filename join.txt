@@ -15,9 +15,10 @@ JOIN course_teacher ct ON c.id = ct.course_id
 WHERE ct.teacher_id = 44;
 
 4.
-SELECT deg.*, dep.name AS departments_name FROM `students` s
+SELECT s.name student_name, s.surname student_surname, deg.*, dep.name AS departments_name FROM `students` s
 JOIN degrees deg ON s.degree_id = deg.id
-JOIN departments dep ON deg.department_id = dep.id;
+JOIN departments dep ON deg.department_id = dep.id
+ORDER BY s.surname, s.name;
 
 5.
 SELECT c.*, t.* FROM courses c
