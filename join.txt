@@ -1,0 +1,33 @@
+1.
+SELECT s.* FROM students s
+JOIN degrees d ON s.degree_id = d.id
+WHERE d.name = 'Corso di Laurea in Economia';
+
+2.
+SELECT c.* FROM courses c
+JOIN degrees deg ON c.degree_id = deg.id
+JOIN departments dep ON deg.department_id = dep.id
+WHERE dep.name = 'Dipartimento di Neuroscienze' AND deg.name LIKE '%Corso di Laurea Magistrale%';
+
+3.
+SELECT c.* FROM courses c
+JOIN course_teacher ct ON c.id = ct.course_id
+WHERE ct.teacher_id = 44;
+
+4.
+SELECT deg.*, dep.name AS departments_name FROM `students` s
+JOIN degrees deg ON s.degree_id = deg.id
+JOIN departments dep ON deg.department_id = dep.id;
+
+5.
+SELECT c.*, t.* FROM courses c
+JOIN course_teacher ct ON c.id = ct.course_id
+JOIN teachers t ON ct.teacher_id = t.id;
+
+6.
+SELECT t.* FROM teachers t
+JOIN course_teacher ct ON t.id = ct.teacher_id
+JOIN courses c ON ct.course_id = c.id
+JOIN degrees d ON c.degree_id = d.id
+JOIN departments dp ON d.department_id = dp.id
+WHERE dp.name = 'Dipartimento di Matematica';
