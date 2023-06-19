@@ -1,0 +1,18 @@
+1.
+SELECT YEAR(enrolment_date) AS year, COUNT(*) AS num_students
+FROM students
+GROUP BY year;
+
+2.
+SELECT office_address, count(*) AS num_teachers FROM `teachers`
+GROUP BY office_address;
+
+3.
+SELECT exam_id, AVG(vote) AS avg_vote FROM `exam_student`
+GROUP BY exam_id;
+
+4.
+SELECT dep.name AS department_name, COUNT(*) AS num_courses FROM courses c
+JOIN degrees deg ON c.degree_id = deg.id
+JOIN departments dep ON deg.department_id = dep.id
+GROUP BY dep.id;
